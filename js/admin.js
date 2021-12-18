@@ -103,6 +103,10 @@ function RemoveAllOrder() {
         });
 }
 
+/**
+ *初始化訂單列表
+ *
+ */
 function InitialOrderInfoList() {
     axios.get(`https://livejs-api.hexschool.io/api/livejs/v1/admin/${api_path}/orders`, {
             headers: {
@@ -120,6 +124,10 @@ function InitialOrderInfoList() {
         });
 }
 
+/**
+ *產生C3圓餅圖
+ *
+ */
 function renderC3() {
     // 物件資料蒐集
     let total = {};
@@ -154,8 +162,10 @@ function renderC3() {
     });
 }
 
+/**
+ * 取得訂單品項名稱
+ */
 function getAllProductTitle(productList) {
-    //const productList = item.products;
     let productTitle = '';
     productList.forEach(product => {
         productTitle += `<p>${product.title}</p>`;
@@ -163,6 +173,9 @@ function getAllProductTitle(productList) {
     return productTitle;
 }
 
+/**
+ * 初始化訂單列表
+ */
 function renderList() {
     let str = '';
     originalOrderList.forEach((item) => {
@@ -197,9 +210,6 @@ function renderList() {
         </td>
     </tr>`;
     });
-    //console.log(data);
     const list = document.querySelector(".js-orderList");
     list.innerHTML = str;
-
-
 }
